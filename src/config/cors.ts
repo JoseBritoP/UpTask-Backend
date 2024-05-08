@@ -2,6 +2,7 @@ import { CorsOptions } from "cors";
 
 export const corsOptions:CorsOptions = {
   origin:function(origin,callback){
+    console.log(origin)
     if(origin === process.env.FRONTEND_URL || origin === undefined ){
       console.log('Allowed...')
       callback(null,true);
