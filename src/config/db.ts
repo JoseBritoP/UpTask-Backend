@@ -6,10 +6,9 @@ dotenv.config();
 export const connectDB = async () => {
   try {
     if (!process.env.DATABASE_URL) throw new Error(`Database uri is missing`);
+    console.log(process.env.DATABASE_URL)
     const connection = await mongoose.connect(process.env.DATABASE_URL);
-    console.log(connection.connection);
     const url = `${connection.connection.host}:${connection.connection.port}/${connection.connection.name}`;
-    console.log(url)
     console.log(`Mongo connect in ${url}`);
   } catch (error: any) {
     console.log(error.message);
